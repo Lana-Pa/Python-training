@@ -102,7 +102,7 @@ class test_add_group(unittest.TestCase):
         self.wd = WebDriver()
         self.wd.implicitly_wait(60)
     
-    def test_test_add_group(self):
+    def test_add_group(self):
         success = True
         wd = self.wd
         wd.get("http://localhost/addressbook/")
