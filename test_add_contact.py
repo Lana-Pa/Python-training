@@ -130,6 +130,39 @@ class test_add_contact(unittest.TestCase):
                                     ayear = "1970",
                                     address2 = "ul.Lenina 22-25, Moscow, Russia",
                                     phone2 = "456254856"))
+
+        self.submit_contact_creation(wd)
+        self.logout(wd)
+
+    # TEST-------------------------
+    def test_add_empty_contact(self):
+        wd = self.wd
+        self.open_home_page(wd)
+        self.login(wd, username="admin", password="secret")
+        self.initiate_add_contact(wd)
+        self.fill_contact_form(wd, Contact(firstname="",
+                                           middlename="",
+                                           lastname="",
+                                           nickname="",
+                                           title="",
+                                           company="",
+                                           address="",
+                                           home_phone="",
+                                           mobile_phone="",
+                                           work_phone="",
+                                           email1="",
+                                           email2="",
+                                           email3="",
+                                           homepage="",
+                                           #can't make these fields empty
+                                           bday="//div[@id='content']/form/select[1]//option[4]",
+                                           bmonth="//div[@id='content']/form/select[2]//option[7]",
+                                           byear="",
+                                           aday="//div[@id='content']/form/select[3]//option[18]",
+                                           amonth="//div[@id='content']/form/select[4]//option[3]",
+                                           ayear="",
+                                           address2="",
+                                           phone2=""))
         self.submit_contact_creation(wd)
         self.logout(wd)
 
