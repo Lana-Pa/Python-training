@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 
-from Contact import Contact
-from application import Application
 import pytest
+
+from fixture.application import Application
+from model.Contact import Contact
+
 
 @pytest.fixture  #label to identify pytest fixture
 # create fixture initialization
