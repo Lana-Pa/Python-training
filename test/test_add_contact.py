@@ -1,17 +1,7 @@
 # -*- coding: utf-8 -*-
 
-import pytest
-
-from fixture.application import Application
 from model.Contact import Contact
 
-
-@pytest.fixture  #label to identify pytest fixture
-# create fixture initialization
-def app(request):
-    fixture = Application()
-    request.addfinalizer(fixture.destroy)  # teardown function
-    return fixture
 
 #TEST add a contact
 def test_add_contact(app):
