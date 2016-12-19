@@ -15,13 +15,13 @@ def app(request):
 
 #Test Create a group-------------------------------------
 def test_add_group(app):  #add a fixture app as a parameter
-    app.login(username="admin", password="secret")
+    app.session.login(username="admin", password="secret")
     app.create_group(Group(name="My group", header="Headername", footer="Footername"))
-    app.logout()
+    app.session.logout()
 
 # Test Create an empty group-------------------------------------
 def test_empty_group(app):
-    app.login(username="admin", password="secret")
+    app.session.login(username="admin", password="secret")
     app.create_group(Group(name="", header="", footer=""))
-    app.logout()
+    app.session.logout()
 
