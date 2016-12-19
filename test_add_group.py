@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 from group import Group
 from application import Application
 import pytest
@@ -7,8 +8,8 @@ import pytest
 # create fixture initialization
 def app(request):
     fixture = Application()
-    return fixture
     request.addfinalizer(fixture.destroy) #teardown function
+    return fixture
 
 #Test Create a group-------------------------------------
 def test_add_group(app):  #add a fixture app as a parameter
