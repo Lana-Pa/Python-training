@@ -102,3 +102,14 @@ class ContactHelper:
         wd.find_element_by_name("phone2").send_keys(Contact.phone2)
         # submit contact edition
         wd.find_element_by_xpath("//input[@value='Update']").click()
+
+    def add_first_contact_to_group(self):
+        wd = self.app.wd
+        wd.find_element_by_xpath("//a[@href][text() = 'home']").click()
+        wd.find_element_by_name("selected[]").click()
+        wd.find_element_by_xpath("//input[@name='add']").click()
+        wd.find_element_by_xpath("//a[contains(text(),'group page')]").click()
+
+
+
+
