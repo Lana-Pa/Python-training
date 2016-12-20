@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from model.Contact import Contact
+from model.contact import Contact
 
 
 #TEST add a contact
@@ -20,12 +20,6 @@ def test_add_contact(app):
                        email2 = "p2@co.com",
                        email3 ="p3@co.com",
                        homepage = "www.mypage.com",
-                       bday = "//div[@id='content']/form/select[1]//option[4]",
-                       bmonth = "//div[@id='content']/form/select[2]//option[7]",
-                       byear = "1970",
-                       aday = "//div[@id='content']/form/select[3]//option[18]",
-                       amonth = "//div[@id='content']/form/select[4]//option[3]",
-                       ayear = "1970",
                        address2 = "ul.Lenina 22-25, Moscow, Russia",
                        phone2 = "456254856"))
 
@@ -48,13 +42,6 @@ def test_add_empty_contact(app):
                        email2="",
                        email3="",
                        homepage="",
-                       #can't make these fields empty
-                                           bday="//div[@id='content']/form/select[1]//option[4]",
-                       bmonth="//div[@id='content']/form/select[2]//option[7]",
-                       byear="",
-                       aday="//div[@id='content']/form/select[3]//option[18]",
-                       amonth="//div[@id='content']/form/select[4]//option[3]",
-                       ayear="",
                        address2="",
                        phone2=""))
     app.session.logout()
