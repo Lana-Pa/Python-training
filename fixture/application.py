@@ -5,12 +5,20 @@ from fixture.contact import ContactHelper
 
 class Application:
     def __init__(self):
-        #initialization (constructor)
+        # initialization (constructor)
         self.wd = WebDriver()
         self.wd.implicitly_wait(60)
         self.session = SessionHelper(self)
         self.group = GroupHelper(self)
         self.contact = ContactHelper(self)
+
+    # check if the browser is opened
+    def is_valid(self):
+        try:
+            self.wd.current_url()  # check for example what the url is now opened
+            return True
+        except:
+            return False
 
     def open_home_page(self):
         wd = self.wd
