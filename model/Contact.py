@@ -16,4 +16,4 @@ class Contact:
         self.email3 = email3
         self.homepage = homepage
         self.address2 = address2
-        self.phone2 = phone 2
+        self.phone2 = phone2
