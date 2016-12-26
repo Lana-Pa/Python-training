@@ -15,7 +15,7 @@ class Application:
     # check if the browser is opened
     def is_valid(self):
         try:
-            self.wd.current_url()  # check for example what the url is now opened
+            self.wd.current_url  # check for example what the url is now opened
             return True
         except:
             return False

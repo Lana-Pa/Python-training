@@ -21,5 +21,5 @@ def stop(request):
     def fin():
         fixture.session.logout()
         fixture.destroy()
-    request.addfinalizer(fin) #teardown function
+    request.addfinalizer(fin) # teardown function
     return fixture
