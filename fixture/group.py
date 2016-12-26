@@ -25,6 +25,7 @@ class GroupHelper:
 
     def change_field_value(self, field_name, text):
         wd = self.app.wd
+        #check before modifying. if the field has any value, than change that value
         if text is not None:
             wd.find_element_by_name(field_name).click()
             wd.find_element_by_name(field_name).clear()

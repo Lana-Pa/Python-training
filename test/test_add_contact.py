@@ -5,7 +5,6 @@ from model.contact import Contact
 
 #TEST add a contact
 def test_add_contact(app):
-    app.session.login(username = "admin", password = "secret")
     app.contact.create(Contact(firstname ="Ivan",
                        middlename = "Stepanovich",
                        lastname = "Ivanov",
@@ -23,11 +22,9 @@ def test_add_contact(app):
                        address2 = "ul.Lenina 22-25, Moscow, Russia",
                        phone2 = "456254856"))
 
-    app.session.logout()
 
 # TEST add an empty contact
 def test_add_empty_contact(app):
-    app.session.login(username="admin", password="secret")
     app.contact.create(Contact(firstname="",
                        middlename="",
                        lastname="",
@@ -44,4 +41,3 @@ def test_add_empty_contact(app):
                        homepage="",
                        address2="",
                        phone2=""))
-    app.session.logout()
