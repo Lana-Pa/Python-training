@@ -15,7 +15,7 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="test_add_group.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="test_add_group.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/test_add_group.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
@@ -35,11 +35,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="conftest.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="conftest.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/conftest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="23" column="32" lean-forward="false" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
+            <state relative-caret-position="272">
+              <caret line="22" column="78" lean-forward="false" selection-start-line="22" selection-start-column="78" selection-end-line="22" selection-end-column="78" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -47,14 +47,44 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="session.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fixture/session.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="28" column="92" lean-forward="false" selection-start-line="28" selection-start-column="92" selection-end-line="28" selection-end-column="92" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="group.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model/group.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="application.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fixture/application.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="25" lean-forward="false" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+            <state relative-caret-position="153">
+              <caret line="9" column="34" lean-forward="false" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
               <folding>
                 <element signature="e#0#58#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="group.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fixture/group.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="578">
+              <caret line="34" column="18" lean-forward="false" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -85,7 +115,6 @@
         <option value="$PROJECT_DIR$/test_add_group.py" />
         <option value="$PROJECT_DIR$/test_add_contact.py" />
         <option value="$PROJECT_DIR$/application.py" />
-        <option value="$PROJECT_DIR$/fixture/session.py" />
         <option value="$PROJECT_DIR$/test/confest.py" />
         <option value="$PROJECT_DIR$/test/conftest.py" />
         <option value="$PROJECT_DIR$/test/test_delete_first_contact.py" />
@@ -102,10 +131,11 @@
         <option value="$PROJECT_DIR$/test/test_edit_contact.py" />
         <option value="$PROJECT_DIR$/test/test_modify_first_group.py" />
         <option value="$PROJECT_DIR$/model/contact.py" />
-        <option value="$PROJECT_DIR$/conftest.py" />
         <option value="$PROJECT_DIR$/test/test_add_contact.py" />
-        <option value="$PROJECT_DIR$/fixture/application.py" />
+        <option value="$PROJECT_DIR$/fixture/session.py" />
         <option value="$PROJECT_DIR$/test/test_add_group.py" />
+        <option value="$PROJECT_DIR$/fixture/application.py" />
+        <option value="$PROJECT_DIR$/conftest.py" />
       </list>
     </option>
   </component>
@@ -202,7 +232,7 @@
       <recent name="C:\Develop\Python-training\model" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.py.test in test_add_contact.py">
+  <component name="RunManager" selected="Python tests.py.test in test_add_group.py">
     <configuration default="false" name="py.test in test_modify_first_group.py" type="tests" factoryName="py.test" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -466,8 +496,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python tests.py.test in test_add_contact.py" />
-        <item index="1" class="java.lang.String" itemvalue="Python tests.py.test in test_add_group.py" />
+        <item index="0" class="java.lang.String" itemvalue="Python tests.py.test in test_add_group.py" />
+        <item index="1" class="java.lang.String" itemvalue="Python tests.py.test in test_add_contact.py" />
         <item index="2" class="java.lang.String" itemvalue="Python tests.py.test in test" />
         <item index="3" class="java.lang.String" itemvalue="Python tests.py.test in test_modify_first_group.py" />
         <item index="4" class="java.lang.String" itemvalue="Python tests.py.test in test_edit_contact.py" />
@@ -491,9 +521,6 @@
     <history-entry file="py_test_in_test - 2016.12.26 at 14h 28m 15s.xml">
       <configuration name="py.test in test" configurationId="tests" />
     </history-entry>
-    <history-entry file="py_test_in_test_add_contact_py - 2016.12.26 at 13h 30m 14s.xml">
-      <configuration name="py.test in test_add_contact.py" configurationId="tests" />
-    </history-entry>
     <history-entry file="py_test_in_test_add_contact_py - 2016.12.26 at 13h 55m 05s.xml">
       <configuration name="py.test in test_add_contact.py" configurationId="tests" />
     </history-entry>
@@ -502,9 +529,6 @@
     </history-entry>
     <history-entry file="py_test_in_test_add_contact_py - 2016.12.26 at 14h 48m 12s.xml">
       <configuration name="py.test in test_add_contact.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="py_test_in_test_add_group_py - 2016.12.26 at 13h 26m 49s.xml">
-      <configuration name="py.test in test_add_group.py" configurationId="tests" />
     </history-entry>
     <history-entry file="py_test_in_test_add_group_py - 2016.12.26 at 13h 53m 50s.xml">
       <configuration name="py.test in test_add_group.py" configurationId="tests" />
@@ -515,15 +539,21 @@
     <history-entry file="py_test_in_test_add_group_py - 2016.12.26 at 14h 44m 56s.xml">
       <configuration name="py.test in test_add_group.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="py_test_in_test_modify_first_group_py - 2016.12.26 at 13h 33m 15s.xml">
-      <configuration name="py.test in test_modify_first_group.py" configurationId="tests" />
+    <history-entry file="py_test_in_test_add_group_py - 2016.12.26 at 14h 51m 53s.xml">
+      <configuration name="py.test in test_add_group.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="py_test_in_test_add_group_py - 2016.12.26 at 16h 00m 35s.xml">
+      <configuration name="py.test in test_add_group.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="py_test_in_test_add_group_py - 2016.12.26 at 16h 01m 22s.xml">
+      <configuration name="py.test in test_add_group.py" configurationId="tests" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="2" y="2" width="1364" height="726" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16765578" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16765578" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -684,14 +714,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fixture/group.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="35" column="32" lean-forward="false" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/test_delete_contact.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -712,22 +734,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fixture/session.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="40" lean-forward="false" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/group.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -780,30 +786,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/conftest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="23" column="32" lean-forward="false" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fixture/application.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="25" lean-forward="false" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#58#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/test_add_contact.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-159">
           <caret line="5" column="2" lean-forward="false" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/group.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fixture/group.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="34" column="18" lean-forward="false" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
           <folding />
         </state>
       </provider>
@@ -813,6 +815,34 @@
         <state relative-caret-position="119">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fixture/session.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="92" lean-forward="false" selection-start-line="28" selection-start-column="92" selection-end-line="28" selection-end-column="92" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fixture/application.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="34" lean-forward="false" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conftest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="22" column="78" lean-forward="false" selection-start-line="22" selection-start-column="78" selection-end-line="22" selection-end-column="78" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
