@@ -62,3 +62,8 @@ class GroupHelper:
         #return to the groups page
         self.return_to_group()
 
+    def count(self):
+        wd = self.app.wd
+        self.open_groups_page()
+        return len(wd.find_elements_by_name("selected[]")) # group quantity
+
