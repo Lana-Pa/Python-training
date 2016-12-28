@@ -2,9 +2,10 @@ class ContactHelper:
     def __init__(self, app):
         self.app = app
 
-    def open_home_page(self):
+    def open_address_book(self):
         wd = self.app.wd
-        wd.find_element_by_xpath("//a[text()='home']").click()
+        if not (wd.current_url.endswith("/addressbook/") and len(wd.find_elements_by_xpath("//input[@value='Send e-Mail']"))>0):
+            wd.find_element_by_xpath("//a[text()='home']").click()
 
     def change_field_value(self, field_name, text):
         wd = self.app.wd
@@ -34,7 +35,7 @@ class ContactHelper:
 
     def create(self, contact):
         wd = self.app.wd
-        self.open_home_page()
+        self.open_address_book()
         # initiate add contact
         wd.find_element_by_link_text("add new").click()
         # fill out form
@@ -45,7 +46,7 @@ class ContactHelper:
 
     def delete_first_contact(self):
         wd = self.app.wd
-        self.open_home_page()
+        self.open_address_book()
         wd.find_element_by_name("selected[]").click()
         wd.find_element_by_xpath("//input[@value='Delete']").click()
         wd.switch_to_alert().accept()
@@ -56,7 +57,7 @@ class ContactHelper:
 
     def modify_first_contact(self, new_group_data):
         wd = self.app.wd
-        self.open_home_page()
+        self.open_address_book()
         self.click_first_edit_button()
         self.fill_contact_form(new_group_data)
         # submit contact edition
@@ -65,7 +66,7 @@ class ContactHelper:
 
     def add_first_contact_to_group(self):
         wd = self.app.wd
-        self.open_home_page()
+        self.open_address_book()
         wd.find_element_by_xpath("//a[@href][text() = 'home']").click()
         wd.find_element_by_name("selected[]").click()
         wd.find_element_by_xpath("//input[@name='add']").click()
@@ -74,7 +75,7 @@ class ContactHelper:
     # count all contacts
     def count(self):
         wd = self.app.wd
-        self.open_home_page()
+        self.open_address_book()
         return len(wd.find_elements_by_name("selected[]"))
 
 
