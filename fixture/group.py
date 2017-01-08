@@ -25,7 +25,7 @@ class GroupHelper:
     def select_first_group(self):
         # select first available group
         wd = self.app.wd
-        wd.find_element_by_name("selected[]").click()
+        wd.find_element_by_xpath("//input[@type='checkbox']").click()
 
     def change_field_value(self, field_name, text):
         wd = self.app.wd
