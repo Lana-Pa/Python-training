@@ -2,11 +2,10 @@
 
 from model.contact import Contact
 
-
 # TEST add a contact
 def test_add_contact(app):
     old_contacts = app.contact.get_contact_list()
-    app.contact.create(Contact(firstname ="Ivan",
+    contact = Contact(firstname ="Ivan",
                        middlename = "Stepanovich",
                        lastname = "Ivanov",
                        nickname = "Van",
@@ -21,15 +20,18 @@ def test_add_contact(app):
                        email3 ="p3@co.com",
                        homepage = "www.mypage.com",
                        address2 = "ul.Lenina 22-25, Moscow, Russia",
-                       phone2 = "456254856"))
+                       phone2 = "456254856")
+    app.contact.create(contact)
     new_contacts = app.contact.get_contact_list()
     assert len(old_contacts) + 1 == len(new_contacts)
+    old_contacts.append(contact)
+    assert sorted(old_contacts, key=Contact.id_or_max) == sorted(new_contacts, key=Contact.id_or_max)
 
 
 # TEST add an empty contact
 def test_add_empty_contact(app):
     old_contacts = app.contact.get_contact_list()
-    app.contact.create(Contact(firstname="",
+    contact = Contact(firstname="",
                        middlename="",
                        lastname="",
                        nickname="",
@@ -44,6 +46,9 @@ def test_add_empty_contact(app):
                        email3="",
                        homepage="",
                        address2="",
-                       phone2=""))
+                       phone2="")
+    app.contact.create(contact)
     new_contacts = app.contact.get_contact_list()
     assert len(old_contacts) + 1 == len(new_contacts)
+    old_contacts.append(contact)
+    assert sorted(old_contacts, key=Contact.id_or_max) == sorted(new_contacts, key=Contact.id_or_max)
