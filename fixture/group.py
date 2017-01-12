@@ -21,7 +21,7 @@ class GroupHelper:
         wd.find_element_by_name("submit").click()
         # return to group page
         self.return_to_group()
-        self.group_chache = None # сброс кэша
+        self.group_cache = None # сброс кэша
 
     def select_first_group(self):
         # select first available group
@@ -54,7 +54,7 @@ class GroupHelper:
         wd.find_element_by_name("delete").click()
         # return to group page
         self.return_to_group()
-        self.group_chache = None  # сброс кэша
+        self.group_cache = None  # сброс кэша
 
     def modify_first_group(self, new_group_data):
         wd = self.app.wd
@@ -67,17 +67,17 @@ class GroupHelper:
         wd.find_element_by_name("update").click()
         #return to the groups page
         self.return_to_group()
-        self.group_chache = None  # сброс кэша
+        self.group_cache = None  # сброс кэша
 
     def count(self):
         wd = self.app.wd
         self.open_groups_page()
         return len(wd.find_elements_by_name("selected[]")) # group quantity
 
-    group_chache = None
+    group_cache = None
 
     def get_group_list(self):
-        if self.group_chache is None: # if cash is None, than create
+        if self.group_cache is None: # if cash is None, than create
             wd = self.app.wd
             self.open_groups_page()
             self.group_cache = []

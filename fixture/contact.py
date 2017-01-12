@@ -45,6 +45,7 @@ class ContactHelper:
         wd.find_element_by_name("theform").click()
         # submit contact creation
         wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
+        self.contact_cache = None
 
     def delete_first_contact(self):
         wd = self.app.wd
@@ -52,6 +53,7 @@ class ContactHelper:
         wd.find_element_by_name("selected[]").click()
         wd.find_element_by_xpath("//input[@value='Delete']").click()
         wd.switch_to_alert().accept()
+        self.contact_cache = None
 
     def click_first_edit_button(self):
         wd = self.app.wd
@@ -64,33 +66,37 @@ class ContactHelper:
         self.fill_contact_form(new_group_data)
         # submit contact edition
         wd.find_element_by_xpath("//input[@value='Update']").click()
+        self.contact_cache = None  # сброс кэша
 
 
-    def add_first_contact_to_group(self):
-        wd = self.app.wd
-        self.open_address_book()
-        wd.find_element_by_xpath("//a[@href][text() = 'home']").click()
-        wd.find_element_by_name("selected[]").click()
-        wd.find_element_by_xpath("//input[@name='add']").click()
-        wd.find_element_by_xpath("//a[contains(text(),'group page')]").click()
+    # def add_first_contact_to_group(self):
+    #     wd = self.app.wd
+    #     self.open_address_book()
+    #     wd.find_element_by_xpath("//a[@href][text() = 'home']").click()
+    #     wd.find_element_by_name("selected[]").click()
+    #     wd.find_element_by_xpath("//input[@name='add']").click()
+    #     wd.find_element_by_xpath("//a[contains(text(),'group page')]").click()
 
-    # count all contacts
+    # count all contacts (also a hash-function to compare lists)
     def count(self):
         wd = self.app.wd
         self.open_address_book()
         return len(wd.find_elements_by_name("selected[]"))
 
-    def get_contact_list(self):
-        wd = self.app.wd
-        self.open_address_book()
-        contacts = []
-        for element in wd.find_elements_by_xpath("//tr[@name='entry']"):
-            first_name = element.find_element_by_xpath(".//td[3]").text
-            last_name = element.find_element_by_xpath(".//td[2]").text
-            id = element.find_element_by_name("selected[]").get_attribute("id")
-            contacts.append(Contact(firstname=first_name, lastname=last_name, id=id))
+    contact_cache = None
 
-        return contacts
+    def get_contact_list(self):
+        if self.contact_cache is None:  # if cash is None, than create
+            wd = self.app.wd
+            self.open_address_book()
+            self.contact_cache = []
+            for element in wd.find_elements_by_xpath("//tr[@name='entry']"):
+                first_name = element.find_element_by_xpath(".//td[3]").text
+                last_name = element.find_element_by_xpath(".//td[2]").text
+                id = element.find_element_by_name("selected[]").get_attribute("id")
+                self.contact_cache.append(Contact(firstname=first_name, lastname=last_name, id=id))
+
+        return list(self.contact_cache)
 
 
 
