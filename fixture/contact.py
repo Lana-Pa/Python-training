@@ -48,34 +48,34 @@ class ContactHelper:
         self.contact_cache = None
 
     def delete_first_contact(self):
+        self.delete_contact_by_index(0)
+
+    def delete_contact_by_index(self, index):
         wd = self.app.wd
         self.open_address_book()
-        wd.find_element_by_name("selected[]").click()
+        wd.find_elements_by_name("selected[]")[index].click()
         wd.find_element_by_xpath("//input[@value='Delete']").click()
         wd.switch_to_alert().accept()
         self.contact_cache = None
 
     def click_first_edit_button(self):
+        self.click_edit_button_by_index(0)
+
+    def click_edit_button_by_index(self, index):
         wd = self.app.wd
-        wd.find_element_by_xpath("//*[@title='Edit']").click()
+        wd.find_elements_by_xpath("//a/img[@title='Edit']")[index].click()
 
     def modify_first_contact(self, new_group_data):
+        self.modify_contact_by_index(0)
+
+    def modify_contact_by_index(self, index, new_group_data):
         wd = self.app.wd
         self.open_address_book()
-        self.click_first_edit_button()
+        self.click_edit_button_by_index(index)
         self.fill_contact_form(new_group_data)
         # submit contact edition
         wd.find_element_by_xpath("//input[@value='Update']").click()
         self.contact_cache = None  # сброс кэша
-
-
-    # def add_first_contact_to_group(self):
-    #     wd = self.app.wd
-    #     self.open_address_book()
-    #     wd.find_element_by_xpath("//a[@href][text() = 'home']").click()
-    #     wd.find_element_by_name("selected[]").click()
-    #     wd.find_element_by_xpath("//input[@name='add']").click()
-    #     wd.find_element_by_xpath("//a[contains(text(),'group page')]").click()
 
     # count all contacts (also a hash-function to compare lists)
     def count(self):
