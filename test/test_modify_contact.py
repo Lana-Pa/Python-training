@@ -5,7 +5,7 @@ def test_modify_contact_first_name(app):  #add a fixture app as a parameter
     if app.contact.count() == 0:
         app.contact.create(Contact(firstname="Ivan", lastname="Fedorov"))
     old_contacts = app.contact.get_contact_list()
-    index = index = randrange(len(old_contacts))  # generate random integer from 0 till (..)
+    index = randrange(len(old_contacts))  # generate random integer from 0 till (..)
     contact = Contact(firstname="Edited new name", lastname="Edited new lastname")
     contact.id = old_contacts[index].id
     app.contact.modify_contact_by_index(index,contact)

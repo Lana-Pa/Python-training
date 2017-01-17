@@ -26,7 +26,11 @@ class SessionHelper:
     #method for checking correct username
     def is_logged_in_as(self, username):
         wd = self.app.wd
-        return wd.find_element_by_xpath("//form[@class='header']/b").text == "("+username+")"
+        return self.get_logged_user == username
+
+    def get_logged_user(self):
+        wd = self.app.wd
+        return wd.find_element_by_xpath("//form[@class='header']/b").text[1:-1] # обрезаем скобки в имени пользователя (Admin)
 
     # smart logout
     def ensure_logout(self):
