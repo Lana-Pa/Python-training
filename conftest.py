@@ -1,21 +1,25 @@
 import pytest
+import json
 
 from fixture.application import Application
 
 fixture = None
+target = None
 
 @pytest.fixture  # create fixture for initialization with checking
 def app(request):
     global fixture
-    if fixture is None:  # check for fixture validness
-       browser = request.config.getoption("--browser")
-       base_url = request.config.getoption("--baseUrl")
-       fixture = Application(browser=browser, base_url=base_url)
-    else:
-       if not fixture.is_valid():  # if fixture is not valid (smth wrong with the browser)
-            fixture = Application()
+    global target
+    browser = request.config.getoption("--browser")
+    if target is None:
+        with open(request.config.getoption("--target")) as config_file:
+            target = json.load(config_file)
+
+    if fixture is None or not fixture.is_valid():  # check for fixture validness
+        fixture = Application(browser=browser, base_url=target["baseUrl"])
+
     # check for preconditions before login
-    fixture.session.ensure_login(username="admin", password="secret")
+    fixture.session.ensure_login(username=target["username"], password=target["password"])
     return fixture
 
 @pytest.fixture(scope="session", autouse=True) # create fixture for finalization
@@ -29,4 +33,4 @@ def stop(request):
 # hook - add additional parameters to load tests from cmd
 def pytest_addoption(parser):
     parser.addoption("--browser", action="store", default="firefox")  # parameter, what to do, definition of the parameter
-    parser.addoption("--baseUrl", action="store", default="http://localhost/addressbook/")
+    parser.addoption("--target", action="store", default="target.json")
