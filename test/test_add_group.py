@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 from model.group import Group
 
-def test_add_group(app, data_groups):  # add a fixture app as a parameter, data_groups - load data for testing from data/group.py
-    group = data_groups
+def test_add_group(app, json_groups):  # add a fixture app as a parameter, data_groups/json_groups - load data for testing from data/group.py or test.json
+    group = json_groups
     old_groups = app.group.get_group_list() # make a list of groups before adding a new one
     app.group.create(group) # add a new group
 
