@@ -2,7 +2,7 @@ from model.group import Group
 import random
 
 # get lists from db, not ui
-def test_delete_some_group(app, db):  #add a fixture app as a parameter
+def test_delete_some_group(app, db, check_ui):  #add a fixture app as a parameter
     if len(db.get_group_list()) == 0:
        app.group.create(Group(name="test"))
 
@@ -15,4 +15,6 @@ def test_delete_some_group(app, db):  #add a fixture app as a parameter
     new_groups = db.get_group_list()  # make a list of groups after deleting a one
     old_groups.remove(group)
     assert old_groups == new_groups
+    if check_ui: # only do assertion when --check_ui option exists (it was added as a fixture to conftest.py)
+        assert sorted(new_groups, key=Group.id_or_max) == sorted(app.group.get_group_list(), key=Group.id_or_max)
 

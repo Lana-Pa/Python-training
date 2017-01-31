@@ -8,7 +8,7 @@ class DbFixture:
         self.name = name
         self.user = user
         self.password = password
-        self.connection = mysql.connector.connect(host=host, database=name, user=user, password=password)
+        self.connection = mysql.connector.connect(host=host, database=name, user=user, password=password, autocommit=True)
         self.connection.autocommit = True # to reset cash after each db request
 
     def get_group_list(self):  # загружаем список групп из базы данных
@@ -20,7 +20,7 @@ class DbFixture:
                 (id, name, header, footer) = row
                 list.append(Group(id=str(id), name=name, header=header, footer=footer))
         finally:
-            cursor.close()
+             cursor.close()
         return list
 
 

@@ -35,7 +35,7 @@ class GroupHelper:
     def select_group_by_id(self, id):
         # select first available group
         wd = self.app.wd
-        wd.find_element_by_css_selector("input[value='%s']" %id).click()
+        wd.find_element_by_css_selector("input[value='%s']" % id).click()
 
     def change_field_value(self, field_name, text):
         wd = self.app.wd
