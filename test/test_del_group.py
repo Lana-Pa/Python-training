@@ -1,17 +1,18 @@
 from model.group import Group
-from random import randrange
+import random
 
-def test_delete_some_group(app):  #add a fixture app as a parameter
-    if app.group.count() == 0:
+# get lists from db, not ui
+def test_delete_some_group(app, db):  #add a fixture app as a parameter
+    if len(db.get_group_list()) == 0:
        app.group.create(Group(name="test"))
 
-    old_groups = app.group.get_group_list()  # make a list of groups before deleting a one
-    index = randrange(len(old_groups))  # generate random integer from 0 till (..)
-    app.group.delete_group_by_index(index)
+    old_groups = db.get_group_list()  # make a list of groups before deleting a one
+    group = random.choice(old_groups)
+    app.group.delete_group_by_id(group.id) # choose group by id, not by index
 
     # проверки
     assert len(old_groups) - 1 == app.group.count()  # compare size of groups list after deleting a group
-    new_groups = app.group.get_group_list()  # make a list of groups after deleting a one
-    old_groups[index:index+1] = []  # delete element from this group
+    new_groups = db.get_group_list()  # make a list of groups after deleting a one
+    old_groups.remove(group)
     assert old_groups == new_groups
 

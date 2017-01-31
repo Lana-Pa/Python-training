@@ -32,6 +32,11 @@ class GroupHelper:
         wd = self.app.wd
         wd.find_elements_by_xpath("//input[@type='checkbox']")[index].click()
 
+    def select_group_by_id(self, id):
+        # select first available group
+        wd = self.app.wd
+        wd.find_element_by_css_selector("input[value='%s']" %id).click()
+
     def change_field_value(self, field_name, text):
         wd = self.app.wd
         #check before modifying. if the field has any value, than change that value
@@ -57,6 +62,17 @@ class GroupHelper:
         wd = self.app.wd
         self.open_groups_page()
         self.select_group_by_index(index)
+        #initiate deletion
+        wd.find_element_by_name("delete").click()
+        # return to group page
+        self.return_to_group()
+        self.group_cache = None  # сброс кэша
+
+
+    def delete_group_by_id(self, id):
+        wd = self.app.wd
+        self.open_groups_page()
+        self.select_group_by_id(id)
         #initiate deletion
         wd.find_element_by_name("delete").click()
         # return to group page
@@ -97,6 +113,9 @@ class GroupHelper:
                 self.group_cache.append(Group(name=text, id=id))
 
         return list(self.group_cache)  # return a copy of cache
+
+
+
 
 
 
