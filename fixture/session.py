@@ -26,7 +26,7 @@ class SessionHelper:
     #method for checking correct username
     def is_logged_in_as(self, username):
         wd = self.app.wd
-        return self.get_logged_user == username
+        return self.get_logged_user() == username
 
     def get_logged_user(self):
         wd = self.app.wd

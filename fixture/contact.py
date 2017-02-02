@@ -1,5 +1,9 @@
 from model.contact import Contact
 import re
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 
 class ContactHelper:
@@ -47,6 +51,9 @@ class ContactHelper:
         wd.find_element_by_name("theform").click()
         # submit contact creation
         wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
+        # wait
+        element = WebDriverWait(wd, 3).until(
+            EC.presence_of_element_located((By.ID, "nav")))
         self.contact_cache = None
 
     def delete_first_contact(self):
@@ -66,6 +73,9 @@ class ContactHelper:
         self.select_contact_by_id(id)
         wd.find_element_by_xpath("//input[@value='Delete']").click()
         wd.switch_to_alert().accept()
+        # wait
+        element = WebDriverWait(wd, 3).until(
+            EC.presence_of_element_located((By.ID, "nav")))
         self.contact_cache = None
 
     def select_contact_by_id(self,id):
@@ -108,6 +118,9 @@ class ContactHelper:
         self.fill_contact_form(new_group_data)
         # submit contact edition
         wd.find_element_by_xpath("//input[@value='Update']").click()
+        # wait
+        element = WebDriverWait(wd, 3).until(
+            EC.presence_of_element_located((By.ID, "nav")))
         self.contact_cache = None  # сброс кэша
 
 
