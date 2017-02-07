@@ -6,6 +6,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
+
 class ContactHelper:
     def __init__(self, app):
         self.app = app
@@ -78,9 +79,18 @@ class ContactHelper:
             EC.presence_of_element_located((By.ID, "nav")))
         self.contact_cache = None
 
-    def select_contact_by_id(self,id):
+    def select_contact_by_id(self,contact_id):
         wd = self.app.wd
-        wd.find_element_by_css_selector("input[value='%s']" % id).click()
+        wd.find_element_by_css_selector("input[value='%s']" % contact_id).click()
+
+    def select_group_to_add_by_id(self,group_id):
+        wd = self.app.wd
+        wd.find_element_by_xpath("//select[@name='to_group']/option[@value='%s']" % group_id).click()
+
+    def select_group_to_see_by_id(self,group_id):
+        wd = self.app.wd
+        wd.find_element_by_xpath("//select[@name='group']/option[@value='%s']" % group_id).click()
+
 
     def click_first_edit_button(self):
         self.click_edit_button_by_index(0)
@@ -129,6 +139,30 @@ class ContactHelper:
         self.open_address_book()
         self.click_details_button_by_index(index)
         self.contact_cache = None  # сброс кэша
+
+    def add_contact_to_group_by_id(self, contact_id, group_id):
+        wd = self.app.wd
+        self.open_address_book()
+        self.select_contact_by_id(contact_id)
+        self.select_group_to_add_by_id(group_id)
+        wd.find_element_by_xpath("//input[@value='Add to']").click()
+        wd.find_element_by_xpath("//a[@href=contains(text(),'group page')]").click()
+        # wait
+        element = WebDriverWait(wd, 3).until(
+            EC.presence_of_element_located((By.ID, "nav")))
+        self.contact_cache = None
+
+    def delete_contact_from_group_by_id(self, contact_id, group_id):
+        wd = self.app.wd
+        self.open_address_book()
+        self.select_group_to_see_by_id(group_id)
+        self.select_contact_by_id(contact_id)
+        wd.find_element_by_xpath("//input[@value='Delete']").click()
+        self.contact_cache = None
+
+
+
+
 
     # count all contacts (also a hash-function to compare lists)
     def count(self):

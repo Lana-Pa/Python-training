@@ -2,7 +2,7 @@ from model.contact import Contact
 import random
 
 def test_delete_first_contact(app, db, check_ui):  # add a fixture app as a parameter
-    if len(db.get_group_list()) == 0:
+    if len(db.get_contact_list()) == 0:
         app.contact.create(Contact(firstname="Ivan"))
     old_contacts = db.get_contact_list()
 
