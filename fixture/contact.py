@@ -81,7 +81,7 @@ class ContactHelper:
 
     def select_contact_by_id(self,contact_id):
         wd = self.app.wd
-        wd.find_element_by_css_selector("input[value='%s']" % contact_id).click()
+        wd.find_element_by_xpath("//input[@value='%s']" % contact_id).click()
 
     def select_group_to_add_by_id(self,group_id):
         wd = self.app.wd
@@ -156,12 +156,11 @@ class ContactHelper:
         wd = self.app.wd
         self.open_address_book()
         self.select_group_to_see_by_id(group_id)
+        element = WebDriverWait(wd, 10)
         self.select_contact_by_id(contact_id)
-        wd.find_element_by_xpath("//input[@value='Delete']").click()
+        wd.find_element_by_xpath("//input[@name='remove']").click()
+        element = WebDriverWait(wd, 3)
         self.contact_cache = None
-
-
-
 
 
     # count all contacts (also a hash-function to compare lists)

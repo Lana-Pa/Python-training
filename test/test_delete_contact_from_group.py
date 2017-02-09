@@ -6,18 +6,30 @@ import random
 def test_add_contact_to_group(app):
     orm = ORMFixture(host="127.0.0.1", name="addressbook", user="root", password="")
 
+    # check for existing any contact
     if len(orm.get_contact_list()) == 0:
         app.contact.create(Contact(firstname="Ivan"))
+    # check for existing any group
     if len(orm.get_group_list()) == 0:
        app.group.create(Group(name="test"))
 
-    contact = random.choice(orm.get_contact_list()) # choose random contact from list
     group = random.choice(orm.get_group_list())     # choose random group from list
-    old_contacts_in_group = orm.get_contacts_in_group(Group(id=group.id))
 
-    app.contact.delete_contact_from_group_by_id(contact.id, group.id)
+    # check for existing contact_not_in_group
+    if len(orm.get_contacts_not_in_group(Group(id=group.id))) == 0:
+        app.contact.create(Contact(firstname="Ivan"))
+
+    # check for existing contact in group
+    if len(orm.get_contacts_in_group(Group(id=group.id))) == 0:
+        contact_not_in_group = random.choice(orm.get_contacts_not_in_group(Group(id=group.id)))
+        app.group.add_contact_to_group_by_id(contact_not_in_group.id, group.id)
+
+    old_contacts_in_group = orm.get_contacts_in_group(Group(id=group.id))
+    contact_in_group = random.choice(old_contacts_in_group)  # choose random contact from list
+
+    app.contact.delete_contact_from_group_by_id(contact_in_group.id, group.id)
 
     new_contacts_in_group = orm.get_contacts_in_group(Group(id=group.id))
-    old_contacts_in_group.remove(contact)
+    old_contacts_in_group.remove(contact_in_group)
     assert sorted(old_contacts_in_group, key=Contact.id_or_max) == sorted(new_contacts_in_group, key=Contact.id_or_max)
 
