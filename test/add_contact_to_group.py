@@ -7,11 +7,15 @@ def test_add_contact_to_group(app):
     orm = ORMFixture(host="127.0.0.1", name="addressbook", user="root", password="")
 
     if len(orm.get_contact_list()) == 0:
-        app.contact.create(Contact(firstname="Ivan"))
+        app.contact.create(Contact(firstname="Nocontactcheck"))
     if len(orm.get_group_list()) == 0:
-       app.group.create(Group(name="test"))
+       app.group.create(Group(name="Nogroupcheck"))
 
     group = random.choice(orm.get_group_list())  # choose random group from list
+
+    if len(orm.get_contacts_not_in_group(Group(id=group.id))) == 0:
+        app.contact.create(Contact(firstname="Notingroupcheck"))
+
     contact = random.choice(orm.get_contacts_not_in_group(Group(id=group.id)))  # choose random contact from list
 
     old_contacts_in_group = orm.get_contacts_in_group(Group(id=group.id))
