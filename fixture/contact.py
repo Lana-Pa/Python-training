@@ -159,7 +159,8 @@ class ContactHelper:
         element = WebDriverWait(wd, 10)
         self.select_contact_by_id(contact_id)
         wd.find_element_by_xpath("//input[@name='remove']").click()
-        element = WebDriverWait(wd, 3)
+        element = WebDriverWait(wd, 5).until(
+            EC.presence_of_element_located((By.ID, "nav")))
         self.contact_cache = None
 
 
