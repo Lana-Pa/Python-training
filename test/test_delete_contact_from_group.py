@@ -12,11 +12,9 @@ def test_del_contact_from_group(app):
 
     group = random.choice(orm.get_group_list())     # choose random group from list
 
-    if len(orm.get_contact_list()) == 0:
-        app.contact.create(Contact(firstname="Ivan"))
-
-    # check for existing contact in group
     if len(orm.get_contacts_in_group(Group(id=group.id))) == 0:
+        if len(orm.get_contacts_not_in_group(Group(id=group.id))) == 0:
+            app.contact.create(Contact(firstname="Ivan"))
         contact_not_in_group = random.choice(orm.get_contacts_not_in_group(Group(id=group.id)))
         app.contact.add_contact_to_group_by_id(contact_not_in_group.id, group.id)
 
